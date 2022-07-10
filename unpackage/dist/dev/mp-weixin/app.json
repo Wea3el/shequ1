@@ -7,14 +7,18 @@
     "components/common/common-list",
     "components/common/divider",
     "pages/search/search",
-    "pages/add-input/add-input"
+    "pages/add-input/add-input",
+    "components/common/upload-image",
+    "pages/topic-nav/topic-nav",
+    "pages/detail/detail",
+    "pages/user-list/user-list",
+    "pages/user-chat/user-chat"
   ],
   "subPackages": [],
   "window": {
-    "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "纽约社区交友",
+    "navigationStyle": "default",
     "navigationBarBackgroundColor": "#7b5aa6",
-    "backgroundColor": "#F8F8F8"
+    "backgroundTextStyle": "light"
   },
   "tabBar": {
     "color": "#b8b8b8",
@@ -36,8 +40,8 @@
       {
         "pagePath": "pages/msg/msg",
         "text": "message",
-        "iconPath": "./static/shop.png",
-        "selectedIconPath": "./static/shoped.png"
+        "iconPath": "static/imessage.png",
+        "selectedIconPath": "static/icons8-messages-50.png"
       },
       {
         "pagePath": "pages/me/me",
@@ -50,6 +54,5 @@
   "usingComponents": {
     "divider": "/components/common/divider",
     "no-thing": "/components/common/no-thing"
-  },
-  "sitemapLocation": "sitemap.json"
+  }
 }

@@ -1,5 +1,8 @@
 <template>
 	<view>
+		<uni-search-bar placeholder="Type to search"></uni-search-bar>
+		
+			
 		<template v-if="searchList.length === 0">
 			<!-- search history -->
 			<view class="py-2 font-lg px-3 text-muted">search history</view>
@@ -14,7 +17,14 @@
 		<template v-else>
 			<!-- 数据列表 -->
 			<block v-for="(item,index) in searchList" :key="index">
-				<common-list :item="item" :index ="index"></common-list>
+				<!-- post -->
+				<template v-if="type === 'post'">
+					<common-list :item="item" :index ="index"></common-list>
+				</template>
+				<!-- user -->
+				<template v-if="type === 'user'">
+					<user-list :item="item" :index ="index"></user-list>
+				</template>
 			</block>
 		</template>
 
@@ -67,17 +77,40 @@
 		comment_count:2,
 		share_num:2,
 	}];
+	const demo1 = [{
+		avatar:"/static/cat.jpeg",
+		username:"asd",
+		sex:1,
+		age:24,
+		isFollow:true
+	},
+	{
+		avatar:"/static/logo.png",
+		username:"asd",
+		sex:2,
+		age:19,
+		isFollow:true
+	}];
 	import commonList from '@/components/common/common-list.vue';
+	import uniSearchBar from "@/components/uni-ui/uni-search-bar/uni-search-bar.vue";
+	import uniNavBar from "@/components/uni-ui/uni-nav-bar/uni-nav-bar.vue";
+	import uniStatusBar from "@/components/uni-ui/uni-nav-bar/uni-status-bar.vue"
+	import userList from "@/components/user-list/user-list.vue"
 	export default {
 		components:{
-			commonList
+			commonList,
+			uniSearchBar,
+			uniNavBar,
+			uniStatusBar,
+			userList
 		},
 		data() {
 			return {
 				searchText:"",
 				list:['nyc dating','food','thrift'],
 				//搜索结果
-				searchList:[]
+				searchList:[],
+				type:"post"
 			}
 		},
 		//监听导航输入
@@ -91,6 +124,11 @@
 				this.searchEvent()
 			}
 			
+		},
+		onLoad(e) {
+			if (e.type) {
+				this.type = e.type
+			}
 		},
 		methods: {
 			//点击搜索历史
@@ -109,7 +147,15 @@
 				})
 				//请求搜索
 				setTimeout(()=>{
-					this.searchList = demo
+					switch (this.type){
+						case 'post':
+							this.searchList = demo
+							break;
+						case 'user':
+							this.searchList = demo1
+							break;
+					}
+					
 					//隐藏loading
 					uni.hideLoading()
 				},3000)	

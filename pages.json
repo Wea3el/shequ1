@@ -4,27 +4,7 @@
 			"path": "pages/index/index",
 			"style": 
 			{
-				"app-plus": {
-					"titleNView": {
-						"searchInput": {
-							"align": "center",
-							"backgroundColor": "#F5f4f2",
-							"borderRadius": "18px",
-							"disabled": true,
-							"placeholder": "type to search",
-							"placeholderColor": "#878695"
-						},
-					"buttons": [
-						{
-							"color": "#bbbbbb",
-							"colorPressed": "#009b8a",
-							"float": "right",
-							"fontSize": "26px",
-							"type": "share"							}
-					]
-					}
-				}
-				 
+				"navigationBarTitleText": "校友圈"
 			}
 		}
 	    ,{
@@ -32,21 +12,24 @@
             "style" :                                                                                    
             {
                
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+				
             }
             
         }
         ,{
             "path" : "pages/msg/msg",
-            "style" :                                                                                    
-            {
-                
-                "enablePullDownRefresh": false
+            "style" :{
+                "navigationStyle": "custom",
+                "enablePullDownRefresh": true
+
             }
             
         }
         ,{
             "path" : "pages/me/me",
+<<<<<<< HEAD
             "style" : {
 
             	"navigationBarTitleText": "我的",
@@ -58,6 +41,12 @@
             		}
             		
             	}
+=======
+            "style" :{                                                                               
+                "navigationStyle": "custom" ,// 隐藏系统导航栏
+                
+                "enablePullDownRefresh": false
+>>>>>>> 55dab433d3517b0c395bd0ebbe3758cdf56f152f
             }
             
         }
@@ -82,26 +71,6 @@
         ,{
 			"path" : "pages/search/search",
 			"style" : {
-				"app-plus": {
-					"titleNView": {
-						"searchInput": {
-							"align": "center",
-							"backgroundColor": "#F5f4f2",
-							"borderRadius": "18px",
-							"placeholder": "type to search",
-							"placeholderColor": "#878695"
-						},
-					"buttons": [
-						{
-							"color": "#bbbbbb",
-							"colorPressed": "#823aac",
-							"float": "right",
-							"fontSize": "20px",
-							"text": "search"							
-							}
-					]
-					}
-				}
 				
 				
 			}
@@ -110,13 +79,48 @@
             "path" : "pages/add-input/add-input",
             "style" :                                                                                    
             {
-                "app-plus": {
-					"titleNView": false
-				}
+               
             }
             
         }
         ,{
+            "path" : "components/common/upload-image",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        
+        ,{
+            "path" : "pages/topic-nav/topic-nav",
+            "style" :{
+				"navigationBarTitleText": "话题分类"
+			}                                                                                  
+            
+            
+        }
+        ,{
+            "path" : "pages/detail/detail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/user-list/user-list",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "好友列表",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+<<<<<<< HEAD
             "path" : "pages/user-set/user-set",
             "style" :                                                                                    
             {
@@ -151,15 +155,22 @@
                 "navigationBarTitleText": "资料编辑",
                 "enablePullDownRefresh": false
             }
+=======
+            "path" : "pages/user-chat/user-chat",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+>>>>>>> 55dab433d3517b0c395bd0ebbe3758cdf56f152f
             
         }
     ],
 	"globalStyle": {
-		"navigationBarTextStyle": "white",
-		"navigationBarTitleText": "纽约社区交友",
+		"navigationStyle": "default",
 		"navigationBarBackgroundColor": "#7b5aa6",
-		"backgroundColor": "#F8F8F8"
-		
+		"backgroundTextStyle": "light"
 	},
 	"tabBar": {
 		"color": "#b8b8b8",
@@ -180,8 +191,8 @@
 		{
 			"pagePath": "pages/msg/msg",
 			"text": "message",
-			"iconPath": "./static/shop.png",
-			"selectedIconPath": "./static/shoped.png"
+			"iconPath": "static/imessage.png",
+			"selectedIconPath": "static/icons8-messages-50.png"
 		},
 		{
 			"pagePath": "pages/me/me",

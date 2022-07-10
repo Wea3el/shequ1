@@ -1,4 +1,9 @@
 {
-  "enablePullDownRefresh": false,
-  "usingComponents": {}
+  "navigationStyle": "custom",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "msg-list": "/components/msg-list/msg-list",
+    "uni-nav-bar": "/components/uni-ui/uni-nav-bar/uni-nav-bar",
+    "no-thing": "/components/common/no-thing"
+  }
 }
